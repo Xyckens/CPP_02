@@ -24,10 +24,20 @@ private:
 public:
 	Fixed();
 	Fixed(const Fixed &to_copy);
+	Fixed(const int intNbr);
+	Fixed(const float floatNbr);
+	~Fixed();
+
 	void	setRawBits(int const raw);
 	int		getRawBits(void) const;
+
 	Fixed&	operator=(Fixed const&);
-	~Fixed();
+	Fixed&	operator<<(Fixed const&);
+
+	float	toFloat(void) const;
+	int		toInt(void) const;
 };
+
+std::ostream& operator<<(std::ostream& os, Fixed const& other);
 
 #endif
