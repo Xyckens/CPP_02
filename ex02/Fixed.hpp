@@ -34,6 +34,17 @@ public:
 
 	Fixed&	operator=(Fixed const&);
 	Fixed&	operator<<(Fixed const&);
+	Fixed&	operator<(Fixed const&);
+	Fixed&	operator>(Fixed const&);
+	Fixed&	operator<=(Fixed const&);
+	Fixed&	operator>=(Fixed const&);
+	Fixed&	operator==(Fixed const&);
+	Fixed&	operator!=(Fixed const&);
+	Fixed&	operator+(Fixed const&);
+	Fixed&	operator-(Fixed const&);
+	Fixed&	operator*(Fixed const&);
+	Fixed&	operator/(Fixed const&);
+
 
 	float	toFloat(void) const;
 	int		toInt(void) const;
