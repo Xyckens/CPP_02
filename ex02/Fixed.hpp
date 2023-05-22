@@ -33,17 +33,20 @@ public:
 	int		getRawBits(void) const;
 
 	Fixed&	operator=(Fixed const&);
-	Fixed&	operator<<(Fixed const&);
-	Fixed&	operator<(Fixed const&);
-	Fixed&	operator>(Fixed const&);
-	Fixed&	operator<=(Fixed const&);
-	Fixed&	operator>=(Fixed const&);
-	Fixed&	operator==(Fixed const&);
-	Fixed&	operator!=(Fixed const&);
-	Fixed&	operator+(Fixed const&);
-	Fixed&	operator-(Fixed const&);
-	Fixed&	operator*(Fixed const&);
-	Fixed&	operator/(Fixed const&);
+	Fixed&	operator<(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator>(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator<=(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator>=(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator==(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator!=(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator*(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator/(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator-(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator+(Fixed const& f1, Fixed const& f2);
+	Fixed&	operator++(); //prefix
+	Fixed&	operator--(); //prefix
+	Fixed	operator++(int); //postfix
+	Fixed	operator--(int); //postfix
 
 
 	float	toFloat(void) const;

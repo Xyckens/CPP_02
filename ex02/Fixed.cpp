@@ -47,6 +47,9 @@ Fixed::Fixed(const Fixed &to_copy)
 	setRawBits(to_copy.fixedPointNbr);
 }
 
+
+/* ---OPERATORS---*/
+
 Fixed&	Fixed::operator=(Fixed const& other)
 {
 	std::cout << "Copy assignment operator called\n";
@@ -58,6 +61,50 @@ std::ostream &operator<<(std::ostream& os, Fixed const& other)
 {
 	os << other.toFloat();
 	return (os);
+}
+
+Fixed&	Fixed::operator+(Fixed const& f1, Fixed const& f2)
+{
+	return (toFloat(f1 + f2));
+}
+
+Fixed&	Fixed::operator-(Fixed const& f1, Fixed const& f2)
+{
+	return (toFloat(f1 - f2));
+}
+
+Fixed&	Fixed::operator++() //prefix
+{
+	int epsilon = 1;
+
+	fixedPointNbr += toFloat(epsilon);
+	return (*this);
+}
+
+Fixed&	Fixed::operator--() //prefix
+{
+	int epsilon = 1;
+
+	fixedPointNbr -= toFloat(epsilon);
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int) //postfix
+{
+	int		epsilon = 1;
+	Fixed	temp = *this;
+
+	fixedPointNbr += toFloat(epsilon);
+	return (temp);
+}
+
+Fixed	Fixed::operator--(int) //postfix
+{
+	int		epsilon = 1;
+	Fixed	temp = *this;
+
+	fixedPointNbr -= toFloat(epsilon);
+	return (temp);
 
 }
 
