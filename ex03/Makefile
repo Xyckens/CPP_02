@@ -10,14 +10,16 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex02
+NAME = ex03
 
 CC = c++
 
 C_FLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = main.cpp \
-	Fixed.cpp
+	Fixed.cpp \
+	bsp.cpp \
+	Point.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

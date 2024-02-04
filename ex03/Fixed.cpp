@@ -17,6 +17,12 @@ void	Fixed::setRawBits(int const raw)
 	this->fixedPointNbr = raw;
 }
 
+int	Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called\n";
+	return (this->fixedPointNbr);
+}
+
 Fixed::Fixed(void)
 {
 	Fixed::setRawBits(0);
@@ -35,18 +41,11 @@ Fixed::Fixed(const float floatNbr)
 	setRawBits(roundf(floatNbr * (1 << Fixed::fractBits)));
 }
 
-int	Fixed::getRawBits(void) const
-{
-	std::cout << "getRawBits member function called\n";
-	return (this->fixedPointNbr);
-}
-
 Fixed::Fixed(const Fixed &to_copy)
 {
 	std::cout << "Copy constructor called\n";
 	setRawBits(to_copy.fixedPointNbr);
 }
-
 
 /* ---OPERATORS---*/
 
@@ -63,32 +62,32 @@ Fixed&	Fixed::operator=(Fixed const& other)
 	return (*this);
 }
 
-Fixed	Fixed::operator<(Fixed const& f1)
+bool	Fixed::operator<(Fixed const& f1)
 {
 	return (this->getRawBits() < f1.getRawBits());
 }
 
-Fixed	Fixed::operator>(Fixed const& f1)
+bool	Fixed::operator>(Fixed const& f1)
 {
 	return (this->getRawBits() > f1.getRawBits());
 }
 
-Fixed	Fixed::operator<=(Fixed const& f1)
+bool	Fixed::operator<=(Fixed const& f1)
 {
 	return (this->getRawBits() <= f1.getRawBits());
 }
 
-Fixed	Fixed::operator>=(Fixed const& f1)
+bool	Fixed::operator>=(Fixed const& f1)
 {
 	return (this->getRawBits() >= f1.getRawBits());
 }
 
-Fixed	Fixed::operator==(Fixed const& f1)
+bool	Fixed::operator==(Fixed const& f1)
 {
 	return (this->getRawBits() == f1.getRawBits());
 }
 
-Fixed	Fixed::operator!=(Fixed const& f1)
+bool	Fixed::operator!=(Fixed const& f1)
 {
 	return (this->getRawBits() != f1.getRawBits());
 }

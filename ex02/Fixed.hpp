@@ -33,12 +33,12 @@ public:
 	int		getRawBits(void) const;
 
 	Fixed&	operator=(Fixed const&);
-	Fixed	operator<(Fixed const& f1);
-	Fixed	operator>(Fixed const& f1);
-	Fixed	operator<=(Fixed const& f1);
-	Fixed	operator>=(Fixed const& f1);
-	Fixed	operator==(Fixed const& f1);
-	Fixed	operator!=(Fixed const& f1);
+	bool	operator<(Fixed const& f1);
+	bool	operator>(Fixed const& f1);
+	bool	operator<=(Fixed const& f1);
+	bool	operator>=(Fixed const& f1);
+	bool	operator==(Fixed const& f1);
+	bool	operator!=(Fixed const& f1);
 	Fixed	operator*(Fixed const& f1);
 	Fixed	operator/(Fixed const& f1);
 	Fixed	operator-(Fixed const& f1);
