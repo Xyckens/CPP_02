@@ -58,7 +58,6 @@ std::ostream &operator<<(std::ostream& os, Fixed const& other)
 {
 	os << other.toFloat();
 	return (os);
-
 }
 
 float	Fixed::toFloat(void) const

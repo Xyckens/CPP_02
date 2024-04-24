@@ -12,21 +12,28 @@
 
 #include "Point.hpp"
 
-bool bsp(Point const a, Point const b, Point const c, Point const point)
+
+float   roundTwoDecimalPlaces(float number)
 {
-	Fixed pa_x = point.getX() - a.getX();
-	Fixed pa_y = point.getY() - a.getY();
-
-	Fixed pb_x = point.getX() - b.getX();
-	Fixed pb_y = point.getY() - b.getY();
-
-	bool point_ab = (b.getX() - a.getX()) * pa_y - (b.getY() - a.getY()) * pa_x > 0;
-	
-	if ((c.getX() - a.getX()) * pa_y - (c.getY() - a.getY()) * pa_x > 0 == point_ab)
-		return (false);
-	if ((c.getX() - b.getX()) * pb_y - (c.getY() - b.getY() * pb_x) > 0 != point_ab)
-		return (false);
-	return (true);
+    return roundf(number * 100.0) / 100.0;
 }
 
-/* https://stackoverflow.com/questions/2049582/how-to-determine-if-a-point-is-in-a-2d-triangle */
+bool bsp( Point const a, Point const b, Point const c, Point const point)
+{
+    Fixed area;
+
+    area = Point::getTriangleArea(a, b, c);
+    if(roundTwoDecimalPlaces(area.toFloat()) == 0)
+        return(false);
+    Fixed area1 = Point::getTriangleArea(a, b, point);
+    Fixed area2 = Point::getTriangleArea(a, point, c);
+    Fixed area3 = Point::getTriangleArea(point, b, c);
+    if(roundTwoDecimalPlaces(area1.toFloat()) == 0 || 
+        roundTwoDecimalPlaces(area2.toFloat())== 0 ||
+            roundTwoDecimalPlaces(area3.toFloat())== 0)
+                return(false);
+    Fixed sum = area1 + area2 + area3;
+    if(roundTwoDecimalPlaces(area.toFloat()) == roundTwoDecimalPlaces(sum.toFloat()))
+        return(true);
+    return(false);
+}

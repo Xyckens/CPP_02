@@ -12,9 +12,9 @@
 
 NAME = ex02
 
-CC = c++
+CXX = c++
 
-C_FLAGS = -Wall -Werror -Wextra -std=c++98
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = main.cpp \
 	Fixed.cpp
@@ -24,7 +24,7 @@ OBJ = $(SRC:.cpp=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(C_FLAGS) $(SRC) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(SRC) -o $(NAME)
 
 clean:
 	rm -rf $(OBJ)
@@ -34,4 +34,3 @@ fclean: clean
 
 re: fclean all
 
-.SILENT:

@@ -26,7 +26,8 @@ public:
 	Point(const float f1, const float f2);
 	Point(const Point &to_copy);
 
-	Point&	operator=(Point const& other);
+	Point&			operator=(Point const& other);
+	static Fixed	getTriangleArea(Point const a, Point const b, Point const c);
 
 	void	setX(Fixed const x);
 	void	setY(Fixed const y);

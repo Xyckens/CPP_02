@@ -57,7 +57,21 @@ Point&	Point::operator=(Point const& other)
 	return (*this);
 }
 
+Fixed Point::getTriangleArea(Point const a, Point const b, Point const c)
+{
+    Fixed term1 = Fixed(a.x) * (b.y - c.y);
+    Fixed term2 = Fixed(b.x) * (c.y - a.y);
+    Fixed term3 = Fixed(c.x) * (a.y - b.y);
+
+    Fixed area = (term1 + term2 + term3) / Fixed(2);
+
+    if (area < 0)
+        area = area * Fixed(-1);
+
+    return area;
+}
+
 Point::~Point()
 {
-	std::cout << "Destroyed\n";
+	//std::cout << "Destroyed\n";
 }	

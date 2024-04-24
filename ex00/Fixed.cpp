@@ -37,10 +37,13 @@ Fixed::Fixed(const Fixed &to_copy)
 
 Fixed&	Fixed::operator=(Fixed const& other)
 {
+	if(this == &other)
+		return(*this);
 	std::cout << "Copy assignment operator called\n";
-	this->fixedPointNbr = other.getRawBits();
+	this->fixedPointNbr = other.fixedPointNbr;
 	return (*this);
 }
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called\n";
